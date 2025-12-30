@@ -151,6 +151,45 @@
     @media(max-width:768px){
         .hero h2{ font-size:38px; }
     }
+
+    /* ====================== MEDIA QUERIES ====================== */
+
+    /* Tablets */
+    @media(max-width:900px){
+        header nav{
+            display:flex;
+            gap:10px;
+        }
+        .hero h2{ font-size:45px; }
+        .about img{ width:350px; }
+    }
+
+    /* Mobile */
+    @media(max-width:600px){
+        header{
+            flex-direction:column;
+            gap:10px;
+        }
+        nav a{ margin-left:10px; font-size:14px; }
+        .hero{
+            align-items:center;
+            text-align:center;
+            padding-left:0;
+        }
+        .hero h2{ font-size:30px; }
+        .hero p{ font-size:16px; max-width:300px; }
+        .about{ flex-direction:column; text-align:center; }
+        .about img{ width:100%; }
+        .about-content{ max-width:100%; border-left:none; border-top:5px solid #00e676; }
+    }
+
+    /* Very small screens */
+    @media(max-width:400px){
+        header h1{ font-size:20px; }
+        .hero h2{ font-size:26px; }
+        .plan{ padding:20px; }
+    }
+
 </style>
 </head>
 <body>
@@ -257,3 +296,4 @@ function sendMessage(e){
 </script>
 
 </body>
+</html>
