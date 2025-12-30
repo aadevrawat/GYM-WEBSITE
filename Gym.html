@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BeFit Gym</title>
+
+<!-- ===== CSS ===== -->
+<style>
+    *{
+        margin:0; padding:0;
+        box-sizing:border-box;
+        font-family: 'Poppins', sans-serif;
+        scroll-behavior:smooth;
+    }
+    body{
+        background:#0b0d10;
+        color:#fff;
+    }
+
+    /* Navbar */
+    header{
+        position:fixed;
+        top:0; left:0; width:100%;
+        background:#0e1116;
+        padding:15px 5%;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        z-index:1000;
+        border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+    header h1{ font-size:25px; color:#00e676; letter-spacing:1px; }
+    nav a{
+        margin-left:20px; text-decoration:none;
+        color:#fff; font-weight:500;
+        transition:.3s;
+    }
+    nav a:hover{ color:#00e676; }
+
+    section{ padding:90px 5%; }
+
+    /* Hero Section */
+    .hero{
+        height:100vh;
+        background:url('https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        display:flex; flex-direction:column;
+        justify-content:center; align-items:flex-start;
+        padding-left:5%;
+        text-shadow:0 2px 8px rgba(0,0,0,0.7);
+    }
+    .hero h2{ font-size:55px; max-width:600px; }
+    .hero p{ font-size:20px; max-width:500px; margin-top:15px; }
+    .hero button{
+        margin-top:20px; padding:12px 25px;
+        background:#00e676; color:#000;
+        border:none; border-radius:5px;
+        cursor:pointer; font-size:18px; font-weight:600;
+        transition:.3s;
+    }
+    .hero button:hover{ background:#00c764; transform:scale(1.05); }
+
+    /* ===== ABOUT SECTION ===== */
+    #about h2{ color:#00e676; margin-bottom:20px; }
+    .about{
+        display:flex; gap:50px; align-items:center; flex-wrap:wrap;
+    }
+    .about img{
+        width:450px; border-radius:10px;
+        filter:brightness(90%);
+    }
+    .about-content{
+        max-width:550px;
+        background:#111416;
+        padding:25px;
+        border-radius:12px;
+        border-left:5px solid #00e676;
+        line-height:1.8;
+        font-size:17px;
+        box-shadow:0 4px 20px rgba(0,0,0,0.5);
+    }
+    .about-content h3{ color:#00e676; margin-bottom:10px; }
+    .about-content ul{ margin-top:15px; padding-left:20px; }
+    .about-content ul li{ margin-bottom:8px; }
+
+    /* ===== PLANS SECTION ===== */
+    #plans h2{ color:#00e676; margin-bottom:20px; }
+    .plans{
+        display:grid;
+        grid-template-columns:repeat(auto-fit, minmax(270px,1fr));
+        gap:30px;
+    }
+    .plan{
+        background:#111416;
+        padding:30px;
+        border-radius:15px;
+        border:1px solid rgba(255,255,255,0.1);
+        transition:.3s;
+        position:relative;
+    }
+    .plan:hover{
+        border-color:#00e676; transform:translateY(-8px);
+        box-shadow:0 8px 30px rgba(0,230,118,0.2);
+    }
+    .plan h3{ color:#00e676; margin-bottom:10px; font-size:24px; }
+    .plan p{ font-size:18px; font-weight:600; margin-bottom:10px; }
+    .plan ul{ margin-top:10px; padding-left:18px; }
+    .plan ul li{ margin-bottom:6px; font-size:15px; }
+    .badge{
+        position:absolute;
+        top:15px; right:15px;
+        background:#00e676;
+        padding:5px 10px;
+        font-size:12px; color:#000;
+        border-radius:5px;
+        font-weight:700;
+    }
+
+    /* ===== CONTACT ===== */
+    #contact{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+    }
+    #contact h2{ color:#00e676; margin-bottom:20px; }
+    .contact form{
+        display:flex; flex-direction:column;
+        max-width:400px; gap:15px;
+    }
+    .contact input, .contact textarea{
+        padding:12px; border-radius:8px;
+        border:none; outline:none;
+    }
+    .contact button{
+        padding:12px;
+        background:#00e676; color:#000; font-weight:600;
+        border:none; border-radius:5px; cursor:pointer;
+        transition:.3s;
+    }
+    .contact button:hover{ background:#00c764; }
+    #status{ margin-top:15px;color:#00e676; }
+
+    footer{
+        text-align:center; padding:15px;
+        background:#000; margin-top:40px;
+        font-size:14px;
+        opacity:.7;
+    }
+
+    @media(max-width:768px){
+        .hero h2{ font-size:38px; }
+    }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+    <h1>BeFit Gym</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#plans">Plans</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<div class="hero" id="home">
+    <h2>Push Your Limits. Transform Your Body.</h2>
+    <p>Join the best gym in town and get trained by professional coaches.</p>
+    <button onclick="scrollToPlans()">View Membership</button>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+    <h2>About Us</h2>
+    <div class="about">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80">
+        <div class="about-content">
+            <h3>Why Choose BeFit Gym?</h3>
+            <p>BeFit Gym is the perfect place to begin and grow your fitness journey. We believe in providing a motivating, supportive, and high-energy environment for everyone — from beginners to advanced athletes. Our expert trainers create personalized programs tailored to help you stay consistent, get stronger, and feel confident.</p>
+            <ul>
+                <li>✔ Modern equipment with regular upgrades</li>
+                <li>✔ Guidance from certified fitness trainers</li>
+                <li>✔ Cardio, strength, crossfit & flexibility workouts</li>
+                <li>✔ Friendly community & weekly fitness challenges</li>
+                <li>✔ Clean environment with 24/7 safety</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PLANS ===== -->
+<section id="plans">
+    <h2>Membership Plans</h2>
+    <div class="plans">
+        <div class="plan">
+            <h3>Basic</h3>
+            <p>₹999 / month</p>
+            <ul>
+                <li>Gym Access (6 AM - 10 PM)</li>
+                <li>Locker Room</li>
+                <li>Free WiFi</li>
+                <li>Group Morning Warm-ups</li>
+            </ul>
+        </div>
+        <div class="plan">
+            <h3>Pro</h3><span class="badge">Popular</span>
+            <p>₹1499 / month</p>
+            <ul>
+                <li>Everything in Basic</li>
+                <li>Trainer Guidance (Weekly)</li>
+                <li>Diet Consultation</li>
+                <li>Fitness Progress Tracking</li>
+            </ul>
+        </div>
+        <div class="plan">
+            <h3>Elite</h3><span class="badge">Best Value</span>
+            <p>₹1999 / month</p>
+            <ul>
+                <li>Everything in Pro</li>
+                <li>Personal Trainer (Daily)</li>
+                <li>Steam Bath + Sauna</li>
+                <li>Sports Recovery Sessions</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form onsubmit="sendMessage(event)">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="number" id="phone" placeholder="Phone Number" required>
+        <textarea id="msg" rows="3" placeholder="Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+    <p id="status"></p>
+</section>
+
+<footer>© 2025 BeFit Gym. All rights reserved.</footer>
+
+<!-- ===== JS ===== -->
+<script>
+function scrollToPlans(){
+    document.getElementById("plans").scrollIntoView({behavior:'smooth'});
+}
+
+function sendMessage(e){
+    e.preventDefault();
+    const name=document.getElementById("name").value;
+    document.getElementById("status").innerText=`Thanks ${name}! We will contact you soon 💪`;
+}
+</script>
+
+</body>
